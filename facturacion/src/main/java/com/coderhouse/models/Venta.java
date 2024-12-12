@@ -83,6 +83,16 @@ public class Venta {
 
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
+		calcularTotal(); //calcula el total cada vez que se agregan productos
+	}
+	
+	//metodo para calcular el total de la venta
+	public int calcularTotal() {
+		int total = 0;
+		for(Producto producto : productos) {
+			total += producto.getPrecio();
+		}
+		return total;
 	}
 
 	@Override
